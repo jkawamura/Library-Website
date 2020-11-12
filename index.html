@@ -1,21 +1,42 @@
 <!DOCTYPE>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
     Library System
   </title>
+  <link rel = "stylesheet" type = "text/css" href = "style.css" />
+  <script src="script.js"></script>
 </head>
 <body>
   <section>
-    <div id="navigation">
-
+    <div class="header">
+      <h1>
+       Small Town Library System
+      </h1>
     </div>
-  </section>
-  <section>
-    <div id="login">
+    <div id="navigation" >
 
+        <ul>
+          <li><a class="active" href="#signup">Sign Up</a></li>
+          <li><a class="open-button" onclick="login()" href="#login">Login</a></li>
+          <li><a class="active" href="#signup">Home</a></li>
+        </ul>
     </div>
-  </section>
+<div class="form-login" id="loginF">
+  <form action="/#namefile.php" class="form-container">
+<h1>Login</h1>
+<label for="email"><b>Email</b></label>
+<input type="text" placeholder="enter email" name="email" required>
 
+<label for="psw"><b>Password</b></label>
+<input type="password" placeholder="Enter Password" name="psw" required>
+
+<button type="submit" class="btn">Login</button>
+<button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+
+
+</div>
 </body>
 </html>
