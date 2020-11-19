@@ -24,13 +24,14 @@
         </ul>
     </div>
 <div class="form-login" id="loginF">
-  <form action="/#namefile.php" class="form-container">
+  <form action="file.php" class="form-container" >
 <h1>Login</h1>
 <label for="email"><b>Email</b></label>
-<input type="text" placeholder="enter email" name="email" required>
+<input type="text" id="name" name="name" maxlength="40">
+<input type="text" id="email" placeholder="enter email" name="email" required>
 
 <label for="psw"><b>Password</b></label>
-<input type="password" placeholder="Enter Password" name="psw" required>
+<input type="password" id="passw" placeholder="Enter Password" name="psw" required>
 
 <button type="submit" class="btn">Login</button>
 <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
