@@ -42,14 +42,14 @@ float: right;
   z-index: 9;
 }
 
-.form-login {
-
+.form-login, .form-signup {
   display: none;
   position: fixed;
   bottom: 0;
   right: 15px;
   border: 3px solid #f1f1f1;
   z-index: 9;
+  background-color: white;
 }
 
 /* Add styles to the form container */
@@ -75,7 +75,7 @@ float: right;
 }
 
 /* Set a style for the submit/login button */
-.form-container .btn {
+.form-container .btn, .btn {
   background-color: #498847;
   color: white;
   padding: 16px 20px;
@@ -87,11 +87,16 @@ float: right;
 }
 
 /* Add a red background color to the cancel button */
-.form-container .cancel {
+.form-container .cancel, .cancel {
   background-color: rgb(129, 19, 19);
 }
 
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
+}
+
+/* for password matching text */
+#confirm {
+  color: green;
 }
