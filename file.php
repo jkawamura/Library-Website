@@ -14,6 +14,7 @@ if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
   {
   echo "please enter a valid email!";
   }
+  
   //do  something with the name and email and password
   //log in
 }

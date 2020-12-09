@@ -14,9 +14,11 @@ function confirmPassword(){
   if(document.getElementById("cpsw").value == document.getElementById("signup-psw").value){
     document.getElementById("confirm").innerHTML = "Passwords Match";
     document.getElementById("confirm").style.color = "green";
+    document.getElementById("register").disabled = false;
   } else{
     document.getElementById("confirm").innerHTML = "Passwords Don't Match";
     document.getElementById("confirm").style.color = "red";
+    document.getElementById("register").disabled = true;
   }
 }
 
