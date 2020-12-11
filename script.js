@@ -2,6 +2,10 @@ function login(){
   document.getElementById("loginF").style.display="block";
 }
 
+function newbook(){
+    document.getElementById("newbookF").style.display="block";
+}
+
 function signUp(){
   document.getElementById("signupF").style.display="block";
 }
