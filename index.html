@@ -23,8 +23,8 @@
           <li><a class="active"  href="#signup">Home</a></li>
         </ul>
     </div>
-<div class="form-login" id="loginF">
-  <form action="file.php" class="form-container" >
+<div class="form-login">
+  <form action="file.php" class="form-container" id="loginF">
     <h1>Login</h1>
     <label for="email"><b>Email</b></label>
     <input type="text" id="email" placeholder="enter email" name="email" required>
@@ -32,12 +32,29 @@
     <label for="psw"><b>Password</b></label>
     <input type="password" id="psw" placeholder="Enter Password" name="psw" required>
 
+    <span id="login-status"></span>
     <button type="submit" class="btn">Login</button>
   </form>
   <button class="btn cancel" onclick="closeForm()">Close</button>
 </div>
+<script>
+  $(function(){
+  $("#loginF").submit(function(event){
+    event.preventDefault();
+    var email = $('#email').val();
+    var psw = $('#psw').val();
+
+    var data = {'email' : email, 
+    'psw' : psw
+    };
+    $('#login-status').load('file.php', data);
+  })
+})
+</script>
 
 
+
+<!--to be moved to the librarian homepage-->
 <div class="form-signup" id="signupF">
   <form action="register.php" method="POST" class="form-container" id="signupform">
     <h1>Signup</h1>
@@ -77,6 +94,8 @@
   })
 })
 </script>
+
+
 
 </body>
 </html>
