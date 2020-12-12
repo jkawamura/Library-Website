@@ -23,8 +23,8 @@
           <li><a class="active"  href="#signup">Home</a></li>
         </ul>
     </div>
-<div class="form-login">
-  <form action="file.php" class="form-container" id="loginF">
+<div class="form-login" id="loginF">
+  <form action="file.php" class="form-container" id="loginform">
     <h1>Login</h1>
     <label for="email"><b>Email</b></label>
     <input type="text" id="email" placeholder="enter email" name="email" required>
@@ -44,8 +44,9 @@
     var email = $('#email').val();
     var psw = $('#psw').val();
 
-    var data = {'email' : email, 
-    'psw' : psw
+    var data = {
+      'email' : email, 
+      'psw' : psw
     };
     $('#login-status').load('file.php', data);
   })

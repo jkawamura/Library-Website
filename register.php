@@ -34,7 +34,7 @@ $query = "select email from jk_users where email = '" . $email . "';";
       echo "<p>An account with that email already exists</p>";
     }
   } else{
-    $sql = "insert into jk_users(email, password, firstname, lastname, address) values ('" . $email . "', '" . password_hash($psw, PASSWORD_BCRYPT) . "', '" . $fname . "', '" . $lname . "', 'test_register');";
+    $sql = "insert into jk_users(email, password, firstname, lastname, role) values ('" . $email . "', '" . password_hash($psw, PASSWORD_BCRYPT) . "', '" . $fname . "', '" . $lname . "', 'user');";
       $result = $conn->query($sql);
       echo "<p>Account created successfully</p>";
   }
