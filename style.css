@@ -100,3 +100,14 @@ float: right;
 #confirm {
   color: green;
 }
+
+/*Styles for the userpage bar on the userpage*/
+#searchbox{
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
