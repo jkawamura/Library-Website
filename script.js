@@ -22,6 +22,10 @@ function checkborrow(){
   document.getElementById("checkborrowF").style.display="block";
 }
 
+function returnbook(){
+    document.getElementById("returnbookF").style.display="block";
+}
+
 function borrowBook(){
   
 }
