@@ -18,12 +18,7 @@
     </div>
     <div id="navigation" >
         <ul>
-
-          <li><a class="active" onclick="signUp()" href="#signup">Sign Up</a></li>
-          <li> <a class="open-button" onclick="login()" href="#login" >LogIn</a>
-
-
-
+          <li> <a class="open-button" onclick="login()" href="#login" >Log In</a>
           <li><a class="active"  href="librarianpage.html">Adminstrator </a></li>
           <li><a class="active"  href="userpage.html">Library Visitor/ Member Log In</a></li>
           <li><a class="active"  href="index.html">Home</a></li>
@@ -65,6 +60,8 @@
   </form>
   <button class="btn cancel" onclick="closeForm()">Close</button>
 </div>
+
+
 <script>
   $(function(){
   $("#loginF").submit(function(event){
@@ -80,54 +77,6 @@
   })
 })
 </script>
-
-
-
-<!--to be moved to the librarian homepage-->
-<div class="form-signup" id="signupF">
-  <form action="register.php" method="POST" class="form-container" id="signupform">
-    <h1>Signup</h1>
-    <label for="fname"><b>First Name</b></label>
-    <input type="text" id="fname" placeholder="Enter First Name" name="fname" required>
-
-    <label for="lname"><b>Last Name</b></label>
-    <input type="text" id="lname" placeholder="Enter Last Name" name="lname" required>
-
-    <label for="email"><b>Email</b></label>
-    <input type="text" id="signup-email" placeholder="enter email" name="email" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" id="signup-psw" placeholder="Enter Password" name="psw" onkeyup="confirmPassword()"  required>
-    <input type="password" id="cpsw" placeholder="Confirm Password" name="cpsw" onkeyup="confirmPassword()" required>
-    <p id="confirm">Passwords Match</p>
-    <div id="signup-mssg"></div>
-
-    <button type="submit" class="btn" id="register">Sign Up</button>
-  </form>
-</div>
-
-
-
-
-<script>
-  $(function(){
-  $("#signupform").submit(function(event){
-    event.preventDefault();
-    var email = $('#signup-email').val();
-    var psw = $('#signup-psw').val();
-    var fname = $('#fname').val();
-    var lname = $('#lname').val();
-
-    var data = {'email' : email,
-    'psw' : psw,
-    'fname' : fname,
-    'lname' : lname};
-
-    $('#signup-mssg').load('register.php', data);
-  })
-})
-</script>
-
 
 
 </body>

@@ -18,6 +18,10 @@ function addaccount(){
   document.getElementById("addaccountF").style.display="block";
 }
 
+function checkborrow(){
+  document.getElementById("checkborrowF").style.display="block";
+}
+
 function confirmPassword(){
   if(document.getElementById("cpsw").value == document.getElementById("signup-psw").value){
     document.getElementById("confirm").innerHTML = "Passwords Match";
