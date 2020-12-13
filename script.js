@@ -23,7 +23,7 @@ function checkborrow(){
 }
 
 function borrowBook(){
-  
+
 }
 
 function confirmPassword(){
@@ -38,3 +38,8 @@ function confirmPassword(){
   }
 }
 
+$(document).ready(function() {
+  $("#formButton").click(function() {
+    $("#form1").toggle();
+  });
+});

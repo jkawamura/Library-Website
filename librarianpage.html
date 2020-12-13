@@ -24,7 +24,7 @@
           <li><a class="active" onclick="newbook()" href="#newbook">Add New Book</a></li>
           <li><a class="active" onclick="checkborrow()" href="#checkbooks">Check Borrowed Books</a></li>
           <li><a class="active" onclick="signUp()" href="#return">Return Borrowed Book</a></li>
-          <li><a class="active"  href="#signup">Home</a></li>
+          <li><a class="active"  href="index.html">Home</a></li>
         </ul>
       </div>
 
@@ -34,13 +34,13 @@
           <h1>Signup</h1>
           <label for="fname"><b>First Name</b></label>
           <input type="text" id="fname" placeholder="Enter First Name" name="fname" required>
-          
+
           <label for="lname"><b>Last Name</b></label>
           <input type="text" id="lname" placeholder="Enter Last Name" name="lname" required>
 
           <label for="email"><b>Email</b></label>
           <input type="text" id="signup-email" placeholder="enter email" name="email" required>
-                                                                                                                          
+
           <label for="psw"><b>Password</b></label>
           <input type="password" id="signup-psw" placeholder="Enter Password" name="psw" onkeyup="confirmPassword()"  required>
           <input type="password" id="cpsw" placeholder="Confirm Password" name="cpsw" onkeyup="confirmPassword()" required>
@@ -57,7 +57,7 @@
           <h1>Add Account</h1>
           <label for="accountemail"><b>User Email</b></label>
           <input type="text" id="account-email" placeholder="enter email" name="accountemail" required>
-          
+
           <label for="lname"><b>Account Name</b></label>
           <input type="text" id="account-name" placeholder="Enter Account Name" name="accountname" required>
 
@@ -72,7 +72,7 @@
           <h1>Add Book</h1>
           <label for="btitle"><b>Title</b></label>
           <input type="text" id="btitle" name="btitle" required>
-          <label for="bauthor"><b>Author</b></label>                                                                              
+          <label for="bauthor"><b>Author</b></label>
           <input type="text" id="bauthor" name="bauthor" required>
           <label for="bgenre"><b>Genre (no capitalizations)</b></label>
           <input type="text" id="bgenre" name="bgenre" required>
@@ -94,7 +94,7 @@
 
           <input type="radio" name="borrowCriteria" value="borrower">Borrower<input type="text" id="borrowUser" name="borrower" placeholder="Borrower's email"><br>
 
-          
+
           <button type="submit" class="btn" id="findBook">Find Books</button>
         </form>
       </div>
@@ -108,11 +108,11 @@ $(function(){
         var fname = $('#fname').val();
         var lname = $('#lname').val();
 
-        var data = {'email' : email,                                                                                                        
+        var data = {'email' : email,
                     'psw' : psw,
                     'fname' : fname,
                     'lname' : lname};
-        
+
         $('#signup-mssg').load('register.php', data);
     })
 })
@@ -124,7 +124,7 @@ $(function(){
         var account = $('#account-name').val();
 
         var data = {
-                  'email' : email,                                                                                                        
+                  'email' : email,
                   'account' : account,
                   };
         $('#account-mssg').load('account.php', data);
