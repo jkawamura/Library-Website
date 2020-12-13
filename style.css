@@ -111,3 +111,37 @@ float: right;
   font-size: 17px;
 }
 
+/*Map Styles*/
+#map{
+  position: relative;
+  align-items: baseline;
+  bottom: 0%;
+  left: 500;
+}
+
+
+#links {
+  float: left;
+  text-align-last:left;
+  position: sticky;
+  background-color: #9b9b9b;
+  color: rgb(63, 63, 63);
+  font-style: oblique;
+  font-weight: 700;
+  padding: 1em 1.0em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.diamond-effect {
+
+  max-width: 80%;
+  margin-bottom: 2rem;
+  -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  transition: 1s;
+  }
+
+  .diamond-effect:hover {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
