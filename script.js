@@ -14,6 +14,10 @@ function closeForm(){
   document.getElementById("loginF").style.display="none";
 }
 
+function addaccount(){
+  document.getElementById("addaccountF").style.display="block";
+}
+
 function confirmPassword(){
   if(document.getElementById("cpsw").value == document.getElementById("signup-psw").value){
     document.getElementById("confirm").innerHTML = "Passwords Match";
