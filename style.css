@@ -42,7 +42,17 @@ float: right;
   z-index: 9;
 }
 
-.form-login, .form-signup {
+.form-login{
+  float: left;
+  display: none;
+  position: fixed;
+  top: 250;
+  right: 10px;
+  border: 2px solid #f1f1f1;
+  z-index: 9;
+  background-color: white;
+}
+.form-signup {
   display: none;
   position: fixed;
   bottom: 0;
@@ -54,8 +64,9 @@ float: right;
 
 /* Add styles to the form container */
 .form-container {
-  max-width: 300px;
-  padding: 10px;
+  max-width: 200px;
+  max-height: fit-content;
+  padding: 5px;
   background-color: white;
 }
 
@@ -145,3 +156,6 @@ float: right;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
+
+
+  

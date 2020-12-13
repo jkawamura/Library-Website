@@ -27,16 +27,20 @@
         <ul>
           <li><a class="active" onclick="signUp()" href="#signup">Sign Up</a></li>
           <li><a class="open-button" onclick="login()" href="#login">Login</a></li>
-          <li><a class="active"  href="#signup">Home</a></li>
+          <li><a class="active"  href="index.html">Home</a></li>
         </ul>
     </div>
   </div>
 
-
+<!--form for searching, resolve before submission-->
   <div id="searchbox" >
     <h2>What Books are You Looking For?</h2>
     <input type="text" placeholder="Search...">
+    <input type="submit"><i class="fa fa-search"></i></button>
   </div>
+
+
+
 <div style="background-image: url('images/image1.jpg'); background-size: cover; height:480px; padding-top:80px;">">
 </div>
 
@@ -45,15 +49,15 @@
   <section class="examples">
   <div class="box"  >
 
-    <span style="--i:1"> <img src="images/image1.jpg" alt="book1" ></span>
-    <span style="--i:2"><img src="images/image2.jpg" alt="book1"   ></span>
-    <span style="--i:3"><img src="images/image2.jpg"  alt="book1"  ></span>
-    <span style="--i:4"><img src="images/image2.jpg"  alt="book1"  ></span>
-    <span style="--i:5"><img src="images/image2.jpg"  alt="book1"  ></span>
-    <span style="--i:6"><img src="images/image2.jpg"  alt="book1"  ></span>
-    <span style="--i:7"><img src="images/image2.jpg"  alt="book1"  ></span>
-    <span style="--i:8"><img src="images/image2.jpg"  alt="book1"  ></span>
-    <span style="--i:9"><img src="images/image2.jpg" alt="book1"   ></span>
+    <span style="--i:1"> <img src="images/book0.jpg" alt="decorative image" ></span>
+    <span style="--i:2"><img src="images/book1.jpg" alt="decorative image"   ></span>
+    <span style="--i:3"><img src="images/book2.jpg"  alt="decorative image"  ></span>
+    <span style="--i:4"><img src="images/book3.jpg"  alt="decorative image"  ></span>
+    <span style="--i:5"><img src="images/book4.jpg"  alt="decorative image"  ></span>
+    <span style="--i:6"><img src="images/book5.jpg"  alt="decorative image"  ></span>
+    <span style="--i:7"><img src="images/book6.jpg"  alt="decorative image"  ></span>
+    <span style="--i:8"><img src="images/book7.jpg"  alt="decorative image"  ></span>
+    <span style="--i:9"><img src="images/book8.jpg" alt="decorative image"   ></span>
 
 
 
@@ -63,16 +67,6 @@
 
 
 </section>
-
-<!--reminder notes
-  Add the userform
-  add some book covers with js?/
-  better ui for log in form, connect the search bar
-
-
--->
-
-
 
 <div class="form-login">
   <form action="file.php" class="form-container" id="loginF">
@@ -90,7 +84,7 @@
 </div>
 <script>
 
-  
+
   $(function(){
   $("#loginF").submit(function(event){
     event.preventDefault();
@@ -104,3 +98,50 @@
   })
 })
 </script>
+
+
+<div class="form-signup" id="signupF">
+  <form action="register.php" method="POST" class="form-container" id="signupform">
+    <h1>Signup</h1>
+    <label for="fname"><b>First Name</b></label>
+    <input type="text" id="fname" placeholder="Enter First Name" name="fname" required>
+
+    <label for="lname"><b>Last Name</b></label>
+    <input type="text" id="lname" placeholder="Enter Last Name" name="lname" required>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" id="signup-email" placeholder="enter email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" id="signup-psw" placeholder="Enter Password" name="psw" onkeyup="confirmPassword()"  required>
+    <input type="password" id="cpsw" placeholder="Confirm Password" name="cpsw" onkeyup="confirmPassword()" required>
+    <p id="confirm">Passwords Match</p>
+    <div id="signup-mssg"></div>
+
+    <button type="submit" class="btn" id="register">Sign Up</button>
+  </form>
+</div>
+
+
+
+
+<script>
+  $(function(){
+  $("#signupform").submit(function(event){
+    event.preventDefault();
+    var email = $('#signup-email').val();
+    var psw = $('#signup-psw').val();
+    var fname = $('#fname').val();
+    var lname = $('#lname').val();
+
+    var data = {'email' : email,
+    'psw' : psw,
+    'fname' : fname,
+    'lname' : lname};
+
+    $('#signup-mssg').load('register.php', data);
+  })
+})
+</script>
+</body>
+</html>
