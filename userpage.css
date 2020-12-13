@@ -54,16 +54,3 @@ animation: animate 80s linear infinite;
 }
 
 
-.diamond-effect {
-
-  max-width: 20%;
-  margin-bottom: 2rem;
-  -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-  transition: 1s;
-  }
-
-  .diamond-effect:hover {
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
