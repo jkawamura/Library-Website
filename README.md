@@ -1,2 +1,3 @@
 # Systems-of-HTML-Javascript-PHP-MySQL
 
+Users are registered independently from accounts. Each user is automatically assigned an acocunt under their first name upon registration, however, they may add more accounts under any other name if they wish. This simplifies the registration process for families who can register under a single email and name and make many sub-accounts under different names for each family member.

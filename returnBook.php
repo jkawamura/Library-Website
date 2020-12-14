@@ -21,9 +21,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                 }
                 else{
 
-}                                                                                                                                                                                                                                                                                           }else{
+        }                                                                                                                                                                                                                                                                                           }else{
                 echo "<p>this book does not exist in the library</p>";
         }
-
-
 ?>

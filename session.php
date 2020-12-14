@@ -1,19 +1,18 @@
-<?php
-
-function updateSession(){
-    if(session_status() != PHP_SESSION_ACTIVE){
-        session_start();
-    }
-    $now = time();
-    if (isset($_SESSION['discard_after']) && $now > $_SESSION['discard_after']) {
-        // this session has worn out its welcome; kill it and start a brand new one
-        session_unset();
-        session_destroy();
-        session_start();    
-    }
-    $_SESSION['discard_after'] = $now + 3600;
-}
-    functiongood_session() {if (array_key_exists("loggedin", $_SESSION) && $_SESSION["loggedin"] &&array_key_exists("sectionlog", $_SESSION) && $_SESSION["sectionlog"]==1) {returntrue;    } else {returnfalse;    }}
-}
-
-?>
+<?php  
+// To check if session is started. 
+header("Location: http://comet.cs.brynmawr.edu/~jkawamura/Systems-of-HTML-Javascript-PHP-MySQL/librarianpage.php", true, 301);
+/*
+if(isset($_Session["loggedin"])){
+    echo "here";
+    if(isset($_SESSION["email"])){
+        if($_SESSION['admin'] == true){
+            echo "hi";
+            header("Location: librarianpage.php");
+        } else {
+            header("");
+        }
+} else { 
+    header("Location:login.php"); 
+} 
+}*/
+?> 

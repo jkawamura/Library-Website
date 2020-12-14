@@ -1,4 +1,5 @@
 <?php
+  session_start();
   $servername = "localhost";
   $username = "gtstudent";
   $password = "";
@@ -25,21 +26,27 @@
 
 
       if (password_verify($psw, $row["password"])) {
-        
+        $_SESSION["loggedin"]=true;
         if($row['role'] == 'admin'){
-          echo "hi librarian";
+          $_SESSION["admin"]=true;
+          $_SESSION["email"]=$email;
+          $_SESSION["login_time"] = time(); 
+          echo "admin";
         } else{
-          echo "hi user";
+          $_SESSION["admin"]=false;
+          $_SESSION["email"]=$email;
+          $_SESSION["login_time"] = time(); 
+          echo "user";
         }
 
     } else{
-      echo "wrong password";
+        echo "passerr";
     }
   } else{
-    echo "incorrect username";
+      echo "usererr";
   }
-} else{
-  echo "incorrect username";
+} else{ 
+    echo "usererr";
 } 
 /*
   if ($result) {
