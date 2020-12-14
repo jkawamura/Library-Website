@@ -27,7 +27,7 @@ function returnbook(){
 }
 
 function borrowBook(){
-
+  document.getElementById("borrowB").style.display="block";
 }
 
 function confirmPassword(){
