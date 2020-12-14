@@ -1,15 +1,16 @@
 <?php
+/*
+echo "sup";
 session_start();
 if(isset($_Session["loggedin"])){
     if(isset($_SESSION["email"])){
         if($_SESSION['admin'] == true){
-            echo "hi";
             header("Location: librarianpage.php");
         } else {
             header("");
         }
     }
-}
+}*/
 ?>
 
 <!DOCTYPE>
@@ -33,9 +34,8 @@ if(isset($_Session["loggedin"])){
     <div id="navigation" >
         <ul>
           <li> <a class="open-button" onclick="login()" href="#login" >Log In</a>
-          <li><a class="active"  href="librarianpage.html">Adminstrator </a></li>
-          <li><a class="active"  href="userpage.html">Library Visitor/ Member Log In</a></li>
-          <li><a class="active"  href="index.html">Home</a></li>
+          <li><a class="active"  href="librarianpage.php">Administrator Home</a></li>
+          <li><a class="active"  href="userpage.php">Member Home</a></li>
         </ul>
     </div>
     <div style="background-image: url('images/image1.jpg'); background-size: cover; height:480px; padding-top:80px;">">

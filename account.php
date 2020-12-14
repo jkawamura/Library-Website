@@ -1,4 +1,10 @@
 <?php
+session_start();
+if($_SESSION['admin']!=true){
+  header('Location: login.php');
+  exit();
+}
+
 $email = $_POST['email'];
 $account = $_POST['account'];
 

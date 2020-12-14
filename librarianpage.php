@@ -1,7 +1,9 @@
 <?php
 session_start();
 if(!isset($_SESSION['loggedin'])){
-   header('Location: login.php');
+   header('Location: login.php#login');
+} else if($_SESSION['admin'] == false){
+    header('Location: login.php#login');
 }
 ?>
 
@@ -31,7 +33,7 @@ if(!isset($_SESSION['loggedin'])){
 	  <li><a class="active" onclick="newbook()" href="#newbook">Add New Book</a></li>
 	  <li><a class="active" onclick="checkborrow()" href="#checkbooks">Check Borrowed Books</a></li>
 	  <li><a class="active" onclick="returnbook()" href="#return">Return Borrowed Book</a></li>
-	  <li><a class="active"  href="index.html">Home</a></li>
+	  <li><a class="active"  href="login.php">Home</a></li>
 	</ul>
       </div>
 
