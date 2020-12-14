@@ -8,8 +8,8 @@ if($_SESSION['admin']!=true){
   exit;
 } 
 
-if(!isset($_POST['radio']) || !isset($_POST['author']) || !isset($_POST['borrower'])){
-  echo "<p>Please make a selection</p>";
+if(!isset($_POST['radio']) && !isset($_POST['author']) && !isset($_POST['borrower'])){
+  echo "<p>Please select a field</p>";
   exit;
 }
 $radio = $_POST['radio'];
@@ -29,16 +29,15 @@ if($radio == 'overdue'){
     $query = "select title, author, name, email, due from jk_books, jk_accounts, jk_users, jk_transactions where jk_transactions.due<curdate() and jk_transactions.bookid=jk_books.ID and jk_books.borrower=jk_accounts.id and jk_accounts.userid=jk_users.id and jk_books.status='out' and jk_transactions.type!='in' group by title;";
 
     $result = $conn->query($query);
-    $row = $result->fetch_assoc();
     echo '<tr><th>Title</th><th>Author</th><th>Account</th><th>Email</th><th>Due Date</th></tr>';
     while($row = $result->fetch_assoc()){
       echo '<tr><td>' . $row["title"] . '</td><td>' . $row["author"] . '</    td><td>' . $row["name"] . '</td><td>' . $row["email"] . '</td><td>' . $row["due"] . '</td></tr>';
     }
 } else if($radio == 'author'){
     if(!empty($author)){
-        $query = "select title, author, name, email, due from jk_books, jk_accounts, jk_users, jk_transactions where jk_books.status='out' and jk_books.borrower=jk_accounts.id and jk_accounts.userid=jk_users.id and jk_accounts.id=jk_transactions.accountid and jk_transactions.type!='in' and where jk_books.author='" . $author . "' group by title;";
+        $query = "select title, author, name, email, due from jk_books, jk_accounts, jk_users, jk_transactions where jk_books.status='out' and jk_books.borrower=jk_accounts.id and jk_accounts.userid=jk_users.id and jk_accounts.id=jk_transactions.accountid and jk_transactions.type!='in' and jk_books.author='" . $author . "' group by title;";
         $result = $conn->query($query);
-        $row = $result->fetch_assoc();
+
 
         echo '<tr><th>Title</th><th>Author</th><th>Account</th><th>Email</th><th>Due Date</th></tr>';
 
@@ -54,7 +53,6 @@ if($radio == 'overdue'){
     $query = "select title, author, name, email, due from jk_books, jk_accounts, jk_users, jk_transactions where jk_users.email='" . $borrower . "' and jk_books.status='out' and jk_books.borrower=jk_accounts.id and jk_accounts.userid=jk_users.id and jk_accounts.id=jk_transactions.accountid and jk_transactions.type!='in' group by title;";
 
     $result = $conn->query($query);
-    $row = $result->fetch_assoc();
 
     echo '<tr><th>Title</th><th>Author</th><th>Account</th><th>Email</th><th>Due Date</th></tr>';
 

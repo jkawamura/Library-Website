@@ -38,7 +38,7 @@ if(!isset($_SESSION['loggedin'])){
     <div id="navigation" >
         <ul>
         <li><a class="active"  href="logout.php">Logout</a></li>
-        <li><a class="active" onclick="yourBook()" href="#borrowed">Your Books</a></li>
+        <li><a class="active" onclick="yourBook() " href="#borrowed">Your Books</a></li>
         <li><a class="active" onclick="borrowBook()" href="#userbrw">Borrow a Book</a></li>
         <li><a class="active" onclick="findBook()" href="#userbrw">Find a Book</a></li>
         </ul>
@@ -68,6 +68,21 @@ if(!isset($_SESSION['loggedin'])){
     </div>
 </section>
 
+<div class="form-signup" id="findB">
+  <div>
+  <form action="findbook.php" method="POST" class="form-container" id="findbook">
+    <h1>Search for Books!</h1>
+    <input type="radio" name="findCriteria" value="title">Title<input type="text" id="findTitle" name="title" placeholder="Book's title"><br>
+
+    <input type="radio" name="findCriteria" value="author">Author<input type="text" id="findAuthor" name="author" placeholder="Author's name"><br>
+
+    <input type="radio" name="findCriteria" value="genre">Genre<input type="text" id="findGenre" name="genre" placeholder="Genre"><br>
+    <button type="submit" class="btn" id="findBook">Find Books</button>
+  </form>	
+  <button class="btn cancel" onclick="closeFind(), $('#find-mssg').html('')">Close</button>
+  </div>
+  <div id='find-mssg'></div>
+</div>
 
 <div class="form-signup" id="borrowB">
 	<form action="borrowbook.php" method="POST" class="form-container" id="userbrw" >
@@ -83,16 +98,14 @@ if(!isset($_SESSION['loggedin'])){
     
     <div id="borrow-mssg"></div>
 	  <button type="submit" class="btn" id="addbk">Borrow</button>
-  
   </form>
-
-  <button class="btn cancel" onclick="closeBorrowB()">Close</button>
+  <button class="btn cancel" onclick="closeBorrowB(),  $('#borrow-mssg').html('')">Close</button>
 </div>
 
 <div class ="form-login" id="yourB" style="width:60%">
     <table style="width:100%" id="booklist">
     </table>
-    <button class="btn cancel" onclick="closeYourBooks()">Close</button>
+    <button class="btn cancel" onclick="closeYourBooks(), $('#booklist').html('')">Close</button>
 </div>
 
 
@@ -112,19 +125,22 @@ $(function(){
 	})
 })
 
+$(function(){
+		$("#findbook").submit(function(event){
+      $('#find-mssg').html('');
+			event.preventDefault();
+      var radio = $('input[name="findCriteria"]:checked').val();
+      var title = $('#findTitle').val();
+			var author = $('#findAuthor').val();
+			var genre = $('#findGenre').val();
 
-  $(function(){
-  $("#loginF").submit(function(event){
-    event.preventDefault();
-    var email = $('#email').val();
-    var psw = $('#psw').val();
-
-    var data = {'email' : email,
-    'psw' : psw
-    };
-    $('#login-status').load('file.php', data);
-  })
-})
+			var data = {'radio' : radio,
+						      'title' : title,
+                  'author' : author,
+                   'genre': genre};
+			$('#find-mssg').load('findbook.php', data);
+		})
+	})
 
 </script>
 </body>

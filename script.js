@@ -25,7 +25,6 @@ function closeAdd(){
 }
 function closeBorrow(){
     document.getElementById("checkborrowF").style.display="none";
-    document.getElementById("borrow-mssg").style.display="none";
 }
 function closeReturn(){
     document.getElementById("returnbookF").style.display="none";
@@ -36,8 +35,7 @@ function addaccount(){
 }
 
 function checkborrow(){
-  document.getElementById("checkborrowF").style.display="block";
-  document.getElementById("borrow-mssg").style.display="block";
+  document.getElementById("checkborrowF").style.display="flex";
 }
 
 function returnbook(){
@@ -54,11 +52,20 @@ function closeBorrowB(){
 
 function yourBook(){
   document.getElementById("yourB").style.display="block";
+  $('#booklist').html("");
   $("#booklist").load('yourbooks.php');
 }
 
 function closeYourBooks(){
   document.getElementById("yourB").style.display="none";
+}
+
+function findBook(){
+  document.getElementById("findB").style.display="flex";
+}
+
+function closeFind(){
+  document.getElementById("findB").style.display="none";
 }
 
 function confirmPassword(){

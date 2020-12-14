@@ -57,7 +57,7 @@ if(!isset($_SESSION['loggedin'])){
 
 			<button type="submit" class="btn" id="register">Sign Up</button>
 		</form>
-		<button class="btn cancel" onclick="closeSignup()">Close</button>
+		<button class="btn cancel" onclick="closeSignup(), $('#signup-mssg').html('')">Close</button>
 	</div>
 
 	<div class="form-signup" id="addaccountF">
@@ -74,7 +74,7 @@ if(!isset($_SESSION['loggedin'])){
 
 			<button type="submit" class="btn" id="accountsubmit">Sign Up</button>
 		</form>
-		<button class="btn cancel" onclick="closeAdd()">Close</button>
+		<button class="btn cancel" onclick="closeAdd(), $('#account-mssg').html('')">Close</button>
 	</div>
 
 	<div class="form-signup" id="newbookF">
@@ -91,11 +91,11 @@ if(!isset($_SESSION['loggedin'])){
 			<div id="book-mssg"></div>
 			<button type="submit" class="btn" id="addbk">Add Book</button>
 		</form>
-		<button class="btn cancel" onclick="closenewB()">Close</button>
+		<button class="btn cancel" onclick="closenewB(), $('#book-mssg').html('')">Close</button>
 	</div>
 
-	<div><table id="borrow-mssg"></table></div>
 	<div class="form-signup" id="checkborrowF">
+		<div>
 		<form action="borrowCheck.php" method="POST" class="form-container" id="checkborrow">
 			<h1>Find Borrowed Books By:</h1>
 			<input type="radio" name="borrowCriteria" id="borrowOverdue" value="overdue">Overdue Books<br>
@@ -103,7 +103,9 @@ if(!isset($_SESSION['loggedin'])){
 			<input type="radio" name="borrowCriteria" value="borrower">Borrower<input type="text" id="borrowUser" name="borrower" placeholder="Borrower's email"><br>
 			<button type="submit" class="btn" id="findBook">Find Books</button>
 		</form>	
-		<button class="btn cancel" onclick="closeBorrow()">Close</button>
+		<button class="btn cancel" onclick="closeBorrow(), $('#borrow-mssg').html('')">Close</button>
+		</div>		
+		<div id="borrow-mssg"></div>
 	</div>
 
 	<div class="form-signup" id="returnbookF">
@@ -116,7 +118,7 @@ if(!isset($_SESSION['loggedin'])){
 			<div id="return-mssg"></div>
 			<button type="submit" class="btn" id="returnBook">Return Book</button>
 		</form>
-		<button class="btn cancel" onclick="closeReturn()">Close</button>
+		<button class="btn cancel" onclick="closeReturn(), $('#return-mssg').html('')">Close</button>
 	</div>
 
 
@@ -169,6 +171,7 @@ if(!isset($_SESSION['loggedin'])){
 
 	$(function(){
 		$("#checkborrow").submit(function(event){
+			$('#borrow-mssg').html('');
 			event.preventDefault();
 
 			var radio = $('input[name="borrowCriteria"]:checked').val();
