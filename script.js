@@ -14,6 +14,22 @@ function closeForm(){
   document.getElementById("loginF").style.display="none";
 }
 
+function closeSignup(){
+    document.getElementById("signupF").style.display="none";
+}
+function closenewB(){
+    document.getElementById("newbookF").style.display="none";
+}
+function closeAdd(){
+    document.getElementById("addaccountF").style.display="none";
+}
+function closeBorrow(){
+    document.getElementById("checkborrowF").style.display="none";
+}
+function closeReturn(){
+    document.getElementById("returnbookF").style.display="none";
+}
+
 function addaccount(){
   document.getElementById("addaccountF").style.display="block";
 }
