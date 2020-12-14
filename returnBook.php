@@ -17,11 +17,14 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                 $row = $result->fetch_assoc();
                 $check = "available";
                 if($row['status'] == $check){
-                echo "<p>this book is not currently being borrowed</p>";
+                echo "<p>This book is not currently being borrowed</p>";
                 }
                 else{
-
+                    $id = $row['ID'];
+                    $sql = "update jk_books set status = 'available' where ID = $id";
+                    $conn->query($sql);
+                    echo "<p>Book successfully returned</p>";
         }                                                                                                                                                                                                                                                                                           }else{
-                echo "<p>this book does not exist in the library</p>";
+                echo "<p>This book does not exist in the library</p>";
         }
 ?>
