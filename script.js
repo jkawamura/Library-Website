@@ -46,6 +46,19 @@ function borrowBook(){
   document.getElementById("borrowB").style.display="block";
 }
 
+function closeBorrowB(){
+  document.getElementById("borrowB").style.display="none";
+}
+
+function yourBook(){
+  document.getElementById("yourB").style.display="block";
+  $("#booklist").load('yourbooks.php');
+}
+
+function closeYourBooks(){
+  document.getElementById("yourB").style.display="none";
+}
+
 function confirmPassword(){
   if(document.getElementById("cpsw").value == document.getElementById("signup-psw").value){
     document.getElementById("confirm").innerHTML = "Passwords Match";
@@ -57,9 +70,3 @@ function confirmPassword(){
     document.getElementById("register").disabled = true;
   }
 }
-
-$(document).ready(function() {
-  $("#formButton").click(function() {
-    $("#form1").toggle();
-  });
-});

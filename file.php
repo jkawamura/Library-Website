@@ -26,6 +26,10 @@
 
 
       if (password_verify($psw, $row["password"])) {
+        if($_SESSION['loggedin'] == true){
+          session_destroy();
+          session_start();
+        }
         $_SESSION["loggedin"]=true;
         if($row['role'] == 'admin'){
           $_SESSION["admin"]=true;

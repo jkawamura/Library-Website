@@ -4,9 +4,11 @@ if(!isset($_SESSION['loggedin'])){
    header('Location: login.php#login');
 } else if($_SESSION['admin'] == true){
     header('Location: login.php#login');
+} else if(time()-$_SESSION["login_time"] > 5400)  {  
+    session_destroy();
+    header("Location:login.php"); 
 }
 ?>
-
 
 <!DOCTYPE>
 <html lang="en">
@@ -35,17 +37,13 @@ if(!isset($_SESSION['loggedin'])){
 
     <div id="navigation" >
         <ul>
-
-          <li><a class="active" onclick="borrowBook()" href="#userbrw">Borrow a book</a></li>
-          <li><a class="open-button" onclick="borrowed()" href="#borrowed">Borrowed</a></li>
-          <li><a class="active"  href="index.html">Home</a></li>
+        <li><a class="active"  href="logout.php">Logout</a></li>
+        <li><a class="active" onclick="yourBook()" href="#borrowed">Your Books</a></li>
+        <li><a class="active" onclick="borrowBook()" href="#userbrw">Borrow a Book</a></li>
+        <li><a class="active" onclick="borrowBook()" href="#userbrw">Find a Book</a></li>
         </ul>
     </div>
   </div>
-
-
-
-
 
 <div style="background-image: url('images/image1.jpg'); background-size: cover; height:480px; padding-top:80px;">">
 </div>
@@ -68,46 +66,54 @@ if(!isset($_SESSION['loggedin'])){
 
 
     </div>
-
-
-
-
 </section>
 
-<div class="form-login">
-  <form action="file.php" class="form-container" id="loginF">
-    <h1>Login</h1>
-    <label for="email"><b>Email</b></label>
-    <input type="text" id="email" placeholder="enter email" name="email" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" id="psw" placeholder="Enter Password" name="psw" required>
-
-    <span id="login-status"></span>
-    <button type="submit" class="btn">Login</button>
-  </form>
-  <button class="btn cancel" onclick="closeForm()">Close</button>
-</div>
-
-
-
-<div class ="borrowb">
 
 <div class="form-signup" id="borrowB">
-	<form action="#borrowbook" method="POST" class="form-container" id="userbrw" >
-	  <h3>Enter to search</h3>
+	<form action="borrowbook.php" method="POST" class="form-container" id="userbrw" >
+	  <h1>Borrow a Book</h1>
 	  <label for="btitle" ><b>Title</b></label>
-	  <input type="text" placeholder="Enter the book title" id="btitle" name="btitle" required>
-	  <label for="bauthor" aria-placeholder="author "><b>Author</b></label>
-	  <input type="text" id="bauthor" name="bauthor" required>
-	  <button type="submit" class="btn" id="addbk">Search</button>
-	</form>
-      </div>
+    <input type="text" placeholder="Enter the book title" id="btitle" name="btitle" required>
+      
+	  <label for="bauthor"><b>Author</b></label>
+    <input type="text" placeholder="Author" id="bauthor" name="bauthor" required>
 
+    <label for="baccount"><b>Which Account?</b></label>
+    <input type="text" placeholder="Account name" id="baccount" name="baccount" required>
+    
+    <div id="borrow-mssg"></div>
+	  <button type="submit" class="btn" id="addbk">Borrow</button>
+  
+  </form>
+
+  <button class="btn cancel" onclick="closeBorrowB()">Close</button>
+</div>
+
+<div class ="form-signup" id="yourB" style="width:60%">
+    <table style="width:100%" id="booklist">
+        <tr>
+        <th>Your Books</th>
+        </tr>
+    </table>
+    <button class="btn cancel" onclick="closeYourBooks()">Close</button>
 </div>
 
 
 <script>
+$(function(){
+		$("#userbrw").submit(function(event){
+			event.preventDefault();
+			var title = $('#btitle').val();
+      var author = $('#bauthor').val();
+      var account = $('#baccount').val();
+
+			var data = {'title' : title,
+            'author' : author,
+            'account' : account};
+      
+			$('#borrow-mssg').load('borrowbook.php', data);
+	})
+})
 
 
   $(function(){
@@ -122,26 +128,8 @@ if(!isset($_SESSION['loggedin'])){
     $('#login-status').load('file.php', data);
   })
 })
-</script>
 
-
-<script>
-  $(function(){
-  $("#signupform").submit(function(event){
-    event.preventDefault();
-    var email = $('#signup-email').val();
-    var psw = $('#signup-psw').val();
-    var fname = $('#fname').val();
-    var lname = $('#lname').val();
-
-    var data = {'email' : email,
-    'psw' : psw,
-    'fname' : fname,
-    'lname' : lname};
-
-    $('#signup-mssg').load('register.php', data);
-  })
-})
 </script>
 </body>
 </html>
+

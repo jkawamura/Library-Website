@@ -1,18 +1,3 @@
-<?php
-/*
-echo "sup";
-session_start();
-if(isset($_Session["loggedin"])){
-    if(isset($_SESSION["email"])){
-        if($_SESSION['admin'] == true){
-            header("Location: librarianpage.php");
-        } else {
-            header("");
-        }
-    }
-}*/
-?>
-
 <!DOCTYPE>
 <html lang="en">
 <head>
@@ -95,7 +80,7 @@ if(isset($_Session["loggedin"])){
             if(response == 'admin'){
                 window.location = "librarianpage.php";
             } else if(response =='user'){
-                window.location = "userpage.html";
+                window.location = "userpage.php";
             } else if(response =='passerr'){
                 $('#login-status').text('incorrect password');
             } else if(response == 'usererr'){
