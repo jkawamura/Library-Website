@@ -8,8 +8,8 @@ if(isset($_Session["loggedin"])){
         } else {
             header("");
         }
-    }  
-} 
+    }
+}
 ?>
 
 <!DOCTYPE>
@@ -27,7 +27,7 @@ if(isset($_Session["loggedin"])){
   <section>
     <div class="header">
       <h1>
-       Small Town Library System
+      Library System
       </h1>
     </div>
     <div id="navigation" >

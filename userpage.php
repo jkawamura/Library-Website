@@ -35,12 +35,7 @@
     </div>
   </div>
 
-<!--form for searching, resolve before submission-->
-  <div id="searchbox" >
-    <h2>What Books are You Looking For?</h2>
-    <input type="text" placeholder="Search...">
-    <input type="submit"><i class="fa fa-search"></i></button>
-  </div>
+
 
 
 
