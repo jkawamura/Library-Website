@@ -25,6 +25,7 @@ function closeAdd(){
 }
 function closeBorrow(){
     document.getElementById("checkborrowF").style.display="none";
+    document.getElementById("borrow-mssg").style.display="none";
 }
 function closeReturn(){
     document.getElementById("returnbookF").style.display="none";
@@ -36,6 +37,7 @@ function addaccount(){
 
 function checkborrow(){
   document.getElementById("checkborrowF").style.display="block";
+  document.getElementById("borrow-mssg").style.display="block";
 }
 
 function returnbook(){

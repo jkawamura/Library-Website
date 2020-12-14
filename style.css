@@ -157,6 +157,13 @@ float: right;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 
+td, th {
+    font-size: 15px;
+    text-align: center;
+    padding: 10px;
+}
+
 table {
   text-align: center;
+  border-radius: 5px;
 }

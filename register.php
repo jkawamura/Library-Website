@@ -2,11 +2,9 @@
 session_start();
 if($_SESSION['admin']!=true){
   session_destroy(); 
-  header('Location: login.php');
   exit;
 } else if(time()-$_SESSION["login_time"] > 5400) {  
   session_destroy(); 
-  header("Location:login.php"); 
   exit;
 } 
 

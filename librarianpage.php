@@ -94,7 +94,7 @@ if(!isset($_SESSION['loggedin'])){
 		<button class="btn cancel" onclick="closenewB()">Close</button>
 	</div>
 
-	<div id="borrow-mssg"></div>
+	<div><table id="borrow-mssg"></table></div>
 	<div class="form-signup" id="checkborrowF">
 		<form action="borrowCheck.php" method="POST" class="form-container" id="checkborrow">
 			<h1>Find Borrowed Books By:</h1>
@@ -102,11 +102,10 @@ if(!isset($_SESSION['loggedin'])){
 			<input type="radio" name="borrowCriteria" value="author">Author<input type="text" id="borrowAuthor" name="author" placeholder="Author's name"><br>
 			<input type="radio" name="borrowCriteria" value="borrower">Borrower<input type="text" id="borrowUser" name="borrower" placeholder="Borrower's email"><br>
 			<button type="submit" class="btn" id="findBook">Find Books</button>
-		</form>
+		</form>	
 		<button class="btn cancel" onclick="closeBorrow()">Close</button>
 	</div>
 
-	<div id="return-mssg"></div>
 	<div class="form-signup" id="returnbookF">
 		<form action="returnBook.php" method="POST" class="form-container" id="return">
 			<h1>Return a Borrowed Book</h1>
@@ -114,6 +113,7 @@ if(!isset($_SESSION['loggedin'])){
 			<input type="text" name="returnTitle" id="returnTitle" required>
 			<label for="returnAuthor"><b>Author</b></label>
 			<input type="text" name="returnAuthor" id="returnAuthor" required>
+			<div id="return-mssg"></div>
 			<button type="submit" class="btn" id="returnBook">Return Book</button>
 		</form>
 		<button class="btn cancel" onclick="closeReturn()">Close</button>

@@ -2,19 +2,15 @@
 session_start();
 if(!isset($_SESSION['loggedin'])){
     session_destroy();
-    header('Location: login.php#login');
     exit;
 } else if($_SESSION['admin'] == true){
     session_destroy();
-    header('Location: login.php#login');
     exit;
 } else if(time()-$_SESSION["login_time"] > 5400)  {  
     session_destroy();
-    header("Location:login.php"); 
     exit;
 } else if(!isset($_SESSION['email'])){
     session_destroy();
-    header("Location:login.php"); 
     exit;
 }
 
@@ -39,7 +35,7 @@ $query = "select id from jk_accounts where name = '" . $account . "' and userid 
 $result = $conn->query($query);
 $row = $result->fetch_assoc();
 if(!isset($row['id'])){
-    echo 'That account does not exist';
+    echo '<p>That account does not exist</p>';
     exit;
 }
 $accountid = $row['id'];
@@ -48,10 +44,10 @@ $query = "select * from jk_books where title = '" . $title . "' and author = '" 
 $result = $conn->query($query);
 $row = $result->fetch_assoc();
 if(!isset($row['ID'])){
-    echo 'That book is unavailable';
+    echo '<p>That book is unavailable</p>';
     exit;
 } else if($row['status'] == 'out'){
-    echo 'That book is unavailable';
+    echo '<p>That book is unavailable</p>';
     exit;
 }
 $bookid = $row['ID'];
@@ -61,6 +57,6 @@ $conn->query($query);
 
 $query = "insert into jk_transactions(bookid, accountid, due, type) values('" . $bookid . "','" . $accountid . "', date_add(curdate(), interval 7 day), 'out');";
 $conn->query($query);
-echo "Book borrowed successfully!"
+echo "<p>Book borrowed successfully!</p>"
 
 ?>

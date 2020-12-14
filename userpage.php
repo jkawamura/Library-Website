@@ -40,7 +40,7 @@ if(!isset($_SESSION['loggedin'])){
         <li><a class="active"  href="logout.php">Logout</a></li>
         <li><a class="active" onclick="yourBook()" href="#borrowed">Your Books</a></li>
         <li><a class="active" onclick="borrowBook()" href="#userbrw">Borrow a Book</a></li>
-        <li><a class="active" onclick="borrowBook()" href="#userbrw">Find a Book</a></li>
+        <li><a class="active" onclick="findBook()" href="#userbrw">Find a Book</a></li>
         </ul>
     </div>
   </div>
@@ -89,11 +89,8 @@ if(!isset($_SESSION['loggedin'])){
   <button class="btn cancel" onclick="closeBorrowB()">Close</button>
 </div>
 
-<div class ="form-signup" id="yourB" style="width:60%">
+<div class ="form-login" id="yourB" style="width:60%">
     <table style="width:100%" id="booklist">
-        <tr>
-        <th>Your Books</th>
-        </tr>
     </table>
     <button class="btn cancel" onclick="closeYourBooks()">Close</button>
 </div>
