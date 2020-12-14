@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE>
 <html lang="en">
 <head>
@@ -26,9 +28,8 @@
     <div id="navigation" >
         <ul>
 
-          <!--debug this code before submission -->
-          <li><a class="active" onclick="borrowBook()" href="#signup">Borrow a book</a></li>
-          <li><a class="open-button" onclick="login()" href="#login">Login</a></li>
+          <li><a class="active" onclick="borrowBook()" href="#userbrw">Borrow a book</a></li>
+          <li><a class="open-button" onclick="borrowed()" href="#borrowed">Borrowed</a></li>
           <li><a class="active"  href="index.html">Home</a></li>
         </ul>
     </div>
@@ -84,6 +85,25 @@
   </form>
   <button class="btn cancel" onclick="closeForm()">Close</button>
 </div>
+
+
+
+<div class ="borrowb">
+
+<div class="form-signup" id="borrowB">
+	<form action="#borrowbook" method="POST" class="form-container" id="userbrw" >
+	  <h3>Enter to search</h3>
+	  <label for="btitle" ><b>Title</b></label>
+	  <input type="text" placeholder="Enter the book title" id="btitle" name="btitle" required>
+	  <label for="bauthor" aria-placeholder="author "><b>Author</b></label>
+	  <input type="text" id="bauthor" name="bauthor" required>
+	  <button type="submit" class="btn" id="addbk">Search</button>
+	</form>
+      </div>
+
+</div>
+
+
 <script>
 
 

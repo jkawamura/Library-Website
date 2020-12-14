@@ -31,7 +31,7 @@ if(!isset($_SESSION['loggedin'])){
 	  <li><a class="active" onclick="newbook()" href="#newbook">Add New Book</a></li>
 	  <li><a class="active" onclick="checkborrow()" href="#checkbooks">Check Borrowed Books</a></li>
 	  <li><a class="active" onclick="returnbook()" href="#return">Return Borrowed Book</a></li>
-	  <li><a class="active"  href="#signup">Home</a></li>
+	  <li><a class="active"  href="index.html">Home</a></li>
 	</ul>
       </div>
 
@@ -117,7 +117,7 @@ if(!isset($_SESSION['loggedin'])){
 	  <button type="submit" class="btn" id="returnBook">Return Book</button>
 	</form>
       </div>
-      
+
 
       <script>
 	$(function(){
