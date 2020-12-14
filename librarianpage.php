@@ -58,6 +58,7 @@ if(!isset($_SESSION['loggedin'])){
 
 	  <button type="submit" class="btn" id="register">Sign Up</button>
 	</form>
+	      <button class="btn cancel" onclick="closeSignup()">Close</button>
       </div>
 
       <div class="form-signup" id="addaccountF">
@@ -74,6 +75,7 @@ if(!isset($_SESSION['loggedin'])){
 
 	  <button type="submit" class="btn" id="accountsubmit">Sign Up</button>
 	</form>
+	      <button class="btn cancel" onclick="closeAdd()">Close</button>
       </div>
 
       <div class="form-signup" id="newbookF">
@@ -90,6 +92,7 @@ if(!isset($_SESSION['loggedin'])){
 	  <div id="book-mssg"></div>
 	  <button type="submit" class="btn" id="addbk">Add Book</button>
 	</form>
+	      <button class="btn cancel" onclick="closenewB()">Close</button>
       </div>
 
       <div id="borrow-mssg"></div>
@@ -106,6 +109,7 @@ if(!isset($_SESSION['loggedin'])){
 
 	  <button type="submit" class="btn" id="findBook">Find Books</button>
 	</form>
+	   <button class="btn cancel" onclick="closeBorrow()">Close</button>
       </div>
 
       <div id="return-mssg"></div>
@@ -118,6 +122,7 @@ if(!isset($_SESSION['loggedin'])){
 	  <input type="text" name="returnAuthor" id="returnAuthor" required>
 	  <button type="submit" class="btn" id="returnBook">Return Book</button>
 	</form>
+	   <button class="btn cancel" onclick="closeReturn()">Close</button>
       </div>
 
 
