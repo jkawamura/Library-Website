@@ -28,7 +28,7 @@ $result = $conn->query($query);
 $row = $result->fetch_assoc();
 $userid = $row['id'];
 
-$query = "select name, title, due from jk_accounts, jk_books, jk_transactions where jk_accounts.id=jk_books.borrower and jk_transactions.bookid=jk_books.id and jk_accounts.userid='" . $userid . "';";
+$query = "select name, title, due, max(timestamp) from jk_accounts, jk_books, jk_transactions where jk_accounts.id=jk_books.borrower and jk_transactions.bookid=jk_books.id and jk_accounts.userid='" . $userid . "' group by jk_books.title;";
 $result = $conn->query($query);
 
 echo '<tr><th>Account</th><th>Book</th><th>Due Date</th></tr>';

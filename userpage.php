@@ -140,7 +140,17 @@ $(function(){
                    'genre': genre};
 			$('#find-mssg').load('findbook.php', data);
 		})
-	})
+  })
+  
+  function longPoll(){
+  $('#booklist').load('longpolling.php',function(){
+    longPoll();
+  });
+  }
+
+  $(function(){
+    longPoll();
+  });
 
 </script>
 </body>

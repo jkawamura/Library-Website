@@ -1,4 +1,4 @@
- setInterval(function(){
+setInterval(function(){
     $.ajax({
       url: "SessionCheck.php",
       success:function(response){
@@ -7,7 +7,7 @@
         } 
     }
   })
-}, 500);
+}, 5000);
 
 function login(){
   document.getElementById("loginF").style.display="block";
@@ -64,11 +64,15 @@ function closeBorrowB(){
 function yourBook(){
   document.getElementById("yourB").style.display="block";
   $('#booklist').html("");
-  $("#booklist").load('yourbooks.php');
+  $('#booklist').load('yourbooks.php');
+  /*$(function(){
+    longPoll();
+  });*/
 }
 
 function closeYourBooks(){
   document.getElementById("yourB").style.display="none";
+  end = true;
 }
 
 function findBook(){
@@ -77,6 +81,12 @@ function findBook(){
 
 function closeFind(){
   document.getElementById("findB").style.display="none";
+}
+
+function longPoll(){
+  $('#booklist').load('longpolling.php',function(){
+    longPoll();
+  });
 }
 
 function confirmPassword(){
