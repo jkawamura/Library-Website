@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['loggedin']) || $_SESSION['admin'] == true || time()-$_SESSION["login_time"] > 5400 || !isset($_SESSION['email'])){
+    session_destroy();
+    exit;
+}
 $email = $_SESSION['email'];
 session_write_close();
 date_default_timezone_set('America/New_York');
