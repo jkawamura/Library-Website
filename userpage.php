@@ -141,7 +141,7 @@ $(function(){
 			$('#find-mssg').load('findbook.php', data);
 		})
   })
-  
+
   function longPoll(){
   $('#booklist').load('longpolling.php',function(){
     longPoll();
@@ -152,6 +152,16 @@ $(function(){
     longPoll();
   });
 
+  setInterval(function(){
+    $.ajax({
+      url: "SessionCheck.php",
+      success:function(response){
+        if(response == 'logout'){
+            window.location = "login.php";
+        } 
+    }
+  })
+}, 5000);
 </script>
 </body>
 </html>

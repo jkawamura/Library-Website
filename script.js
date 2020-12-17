@@ -1,14 +1,3 @@
-setInterval(function(){
-    $.ajax({
-      url: "SessionCheck.php",
-      success:function(response){
-        if(response == 'logout'){
-            window.location = "login.php";
-        } 
-    }
-  })
-}, 5000);
-
 function login(){
   document.getElementById("loginF").style.display="block";
 }
